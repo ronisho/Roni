@@ -1,0 +1,25 @@
+﻿<Window x:Class="GamePlay.GameWindow"
+         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GamePlay"
+        mc:Ignorable="d"
+        Title="GameWindow" Height="625" Width="625" Closing="Window_Closing">
+    
+    <Grid >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="30" />
+        </Grid.RowDefinitions>
+        <Canvas Name="gamePicture" MouseDown="gamePicture_MouseDown">
+            <Canvas.Background>
+                <ImageBrush ImageSource="board_image_6-7.jpeg"/>
+            </Canvas.Background>
+        </Canvas>
+        <WrapPanel Grid.Row="1">
+            <Label Margin="5,0,0,0" Name="pvsp" />
+        </WrapPanel>
+
+    </Grid>
+</Window>

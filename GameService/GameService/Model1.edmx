@@ -1,0 +1,189 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="fourinrowDB_RoniShoseov_EilonOsherModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="SingleGames">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Winner" Type="nvarchar(max)" />
+          <Property Name="Date" Type="datetime" Nullable="false" />
+          <Property Name="Status" Type="bit" Nullable="false" />
+          <Property Name="GamePoint" Type="int" Nullable="false" />
+          <Property Name="Player1_UserName" Type="nvarchar" MaxLength="128" />
+          <Property Name="Player2_UserName" Type="nvarchar" MaxLength="128" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="UserName" />
+          </Key>
+          <Property Name="UserName" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="HashedPassword" Type="nvarchar(max)" />
+          <Property Name="NumOfGames" Type="int" Nullable="false" />
+          <Property Name="NumOfWins" Type="int" Nullable="false" />
+          <Property Name="NumOfLosses" Type="int" Nullable="false" />
+          <Property Name="Points" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_dbo_SingleGames_dbo_Users_Player1_UserName">
+          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+          <End Role="SingleGames" Type="Self.SingleGames" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserName" />
+            </Principal>
+            <Dependent Role="SingleGames">
+              <PropertyRef Name="Player1_UserName" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_SingleGames_dbo_Users_Player2_UserName">
+          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+          <End Role="SingleGames" Type="Self.SingleGames" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserName" />
+            </Principal>
+            <Dependent Role="SingleGames">
+              <PropertyRef Name="Player2_UserName" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="fourinrowDB_RoniShoseov_EilonOsherModelStoreContainer">
+          <EntitySet Name="SingleGames" EntityType="Self.SingleGames" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_dbo_SingleGames_dbo_Users_Player1_UserName" Association="Self.FK_dbo_SingleGames_dbo_Users_Player1_UserName">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="SingleGames" EntitySet="SingleGames" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_SingleGames_dbo_Users_Player2_UserName" Association="Self.FK_dbo_SingleGames_dbo_Users_Player2_UserName">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="SingleGames" EntitySet="SingleGames" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="fourinrowDB_RoniShoseov_EilonOsherModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="SingleGame">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Winner" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Status" Type="Boolean" Nullable="false" />
+          <Property Name="GamePoint" Type="Int32" Nullable="false" />
+          <Property Name="Player1_Name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="Player2_Name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="User" Relationship="Self.FK_dbo_SingleGames_dbo_Users_Player1_UserName" FromRole="SingleGames" ToRole="Users" />
+          <NavigationProperty Name="User1" Relationship="Self.FK_dbo_SingleGames_dbo_Users_Player2_UserName" FromRole="SingleGames" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="UserName" />
+          </Key>
+          <Property Name="UserName" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="HashedPassword" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="NumOfGames" Type="Int32" Nullable="false" />
+          <Property Name="NumOfWins" Type="Int32" Nullable="false" />
+          <Property Name="NumOfLosses" Type="Int32" Nullable="false" />
+          <Property Name="Points" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="SingleGames" Relationship="Self.FK_dbo_SingleGames_dbo_Users_Player1_UserName" FromRole="Users" ToRole="SingleGames" />
+          <NavigationProperty Name="SingleGames1" Relationship="Self.FK_dbo_SingleGames_dbo_Users_Player2_UserName" FromRole="Users" ToRole="SingleGames" />
+        </EntityType>
+        <Association Name="FK_dbo_SingleGames_dbo_Users_Player1_UserName">
+          <End Role="Users" Type="Self.User" Multiplicity="0..1" />
+          <End Role="SingleGames" Type="Self.SingleGame" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserName" />
+            </Principal>
+            <Dependent Role="SingleGames">
+              <PropertyRef Name="Player1_Name" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_SingleGames_dbo_Users_Player2_UserName">
+          <End Role="Users" Type="Self.User" Multiplicity="0..1" />
+          <End Role="SingleGames" Type="Self.SingleGame" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserName" />
+            </Principal>
+            <Dependent Role="SingleGames">
+              <PropertyRef Name="Player2_Name" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="fourinrowDB_RoniShoseov_EilonOsherEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="SingleGames" EntityType="Self.SingleGame" />
+          <EntitySet Name="Users" EntityType="Self.User" />
+          <AssociationSet Name="FK_dbo_SingleGames_dbo_Users_Player1_UserName" Association="Self.FK_dbo_SingleGames_dbo_Users_Player1_UserName">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="SingleGames" EntitySet="SingleGames" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_SingleGames_dbo_Users_Player2_UserName" Association="Self.FK_dbo_SingleGames_dbo_Users_Player2_UserName">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="SingleGames" EntitySet="SingleGames" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="fourinrowDB_RoniShoseov_EilonOsherModelStoreContainer" CdmEntityContainer="fourinrowDB_RoniShoseov_EilonOsherEntities">
+          <EntitySetMapping Name="SingleGames">
+            <EntityTypeMapping TypeName="fourinrowDB_RoniShoseov_EilonOsherModel.SingleGame">
+              <MappingFragment StoreEntitySet="SingleGames">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Winner" ColumnName="Winner" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="GamePoint" ColumnName="GamePoint" />
+                <ScalarProperty Name="Player1_Name" ColumnName="Player1_UserName" />
+                <ScalarProperty Name="Player2_Name" ColumnName="Player2_UserName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="fourinrowDB_RoniShoseov_EilonOsherModel.User">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="HashedPassword" ColumnName="HashedPassword" />
+                <ScalarProperty Name="NumOfGames" ColumnName="NumOfGames" />
+                <ScalarProperty Name="NumOfWins" ColumnName="NumOfWins" />
+                <ScalarProperty Name="NumOfLosses" ColumnName="NumOfLosses" />
+                <ScalarProperty Name="Points" ColumnName="Points" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,43 @@
+C:\Users\USER\Desktop\Git-Hub\C-sharp-final\Final\GameService\GameService\obj\Debug\GameService.csproj.CoreCompileInputs.cache
+C:\Users\USER\Desktop\Git-Hub\C-sharp-final\Final\GameService\GameService\bin\Debug\GameService.dll.config
+C:\Users\USER\Desktop\Git-Hub\C-sharp-final\Final\GameService\GameService\bin\Debug\GameService.dll
+C:\Users\USER\Desktop\Git-Hub\C-sharp-final\Final\GameService\GameService\bin\Debug\GameService.pdb
+C:\Users\USER\Desktop\Git-Hub\C-sharp-final\Final\GameService\GameService\obj\Debug\GameService.dll
+C:\Users\USER\Desktop\Git-Hub\C-sharp-final\Final\GameService\GameService\obj\Debug\GameService.pdb
+C:\Users\USER\Desktop\Git-Hub\C-sharp-final\Final\GameService\GameService\obj\Debug\GameService.csprojAssemblyReference.cache
+C:\Users\USER\Desktop\Git-Hub\C-sharp-final\Final\C-sharp-final\GameService\GameService\bin\Debug\GameService.dll.config
+C:\Users\USER\Desktop\Git-Hub\C-sharp-final\Final\C-sharp-final\GameService\GameService\bin\Debug\GameService.dll
+C:\Users\USER\Desktop\Git-Hub\C-sharp-final\Final\C-sharp-final\GameService\GameService\bin\Debug\GameService.pdb
+C:\Users\USER\Desktop\Git-Hub\C-sharp-final\Final\C-sharp-final\GameService\GameService\obj\Debug\GameService.csproj.CoreCompileInputs.cache
+C:\Users\USER\Desktop\Git-Hub\C-sharp-final\Final\C-sharp-final\GameService\GameService\obj\Debug\GameService.dll
+C:\Users\USER\Desktop\Git-Hub\C-sharp-final\Final\C-sharp-final\GameService\GameService\obj\Debug\GameService.pdb
+C:\Users\USER\Desktop\Git-Hub\C-sharp-final\GitRepo\c-sharp-final\GameService\GameService\bin\Debug\GameService.dll.config
+C:\Users\USER\Desktop\Git-Hub\C-sharp-final\GitRepo\c-sharp-final\GameService\GameService\bin\Debug\GameService.dll
+C:\Users\USER\Desktop\Git-Hub\C-sharp-final\GitRepo\c-sharp-final\GameService\GameService\bin\Debug\GameService.pdb
+C:\Users\USER\Desktop\Git-Hub\C-sharp-final\GitRepo\c-sharp-final\GameService\GameService\obj\Debug\GameService.csproj.CoreCompileInputs.cache
+C:\Users\USER\Desktop\Git-Hub\C-sharp-final\GitRepo\c-sharp-final\GameService\GameService\obj\Debug\GameService.dll
+C:\Users\USER\Desktop\Git-Hub\C-sharp-final\GitRepo\c-sharp-final\GameService\GameService\obj\Debug\GameService.pdb
+C:\Roni\GameService\GameService\bin\Debug\GameService.dll.config
+C:\Roni\GameService\GameService\bin\Debug\GameService.dll
+C:\Roni\GameService\GameService\bin\Debug\GameService.pdb
+C:\Roni\GameService\GameService\bin\Debug\EntityFramework.dll
+C:\Roni\GameService\GameService\bin\Debug\EntityFramework.SqlServer.dll
+C:\Roni\GameService\GameService\bin\Debug\EntityFramework.xml
+C:\Roni\GameService\GameService\bin\Debug\EntityFramework.SqlServer.xml
+C:\Roni\GameService\GameService\obj\Debug\GameService.csproj.CoreCompileInputs.cache
+C:\Roni\GameService\GameService\obj\Debug\GameService.csproj.CopyComplete
+C:\Roni\GameService\GameService\obj\Debug\GameService.dll
+C:\Roni\GameService\GameService\obj\Debug\GameService.pdb
+C:\Roni\GameService\GameService\obj\Debug\GameService.csprojAssemblyReference.cache
+C:\Users\Roni Shoseuv\Downloads\Roni-master\Roni-master\GameService\GameService\bin\Debug\GameService.dll.config
+C:\Users\Roni Shoseuv\Downloads\Roni-master\Roni-master\GameService\GameService\bin\Debug\GameService.dll
+C:\Users\Roni Shoseuv\Downloads\Roni-master\Roni-master\GameService\GameService\bin\Debug\GameService.pdb
+C:\Users\Roni Shoseuv\Downloads\Roni-master\Roni-master\GameService\GameService\bin\Debug\EntityFramework.dll
+C:\Users\Roni Shoseuv\Downloads\Roni-master\Roni-master\GameService\GameService\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Roni Shoseuv\Downloads\Roni-master\Roni-master\GameService\GameService\bin\Debug\EntityFramework.xml
+C:\Users\Roni Shoseuv\Downloads\Roni-master\Roni-master\GameService\GameService\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Roni Shoseuv\Downloads\Roni-master\Roni-master\GameService\GameService\obj\Debug\GameService.csprojAssemblyReference.cache
+C:\Users\Roni Shoseuv\Downloads\Roni-master\Roni-master\GameService\GameService\obj\Debug\GameService.csproj.CoreCompileInputs.cache
+C:\Users\Roni Shoseuv\Downloads\Roni-master\Roni-master\GameService\GameService\obj\Debug\GameService.csproj.CopyComplete
+C:\Users\Roni Shoseuv\Downloads\Roni-master\Roni-master\GameService\GameService\obj\Debug\GameService.dll
+C:\Users\Roni Shoseuv\Downloads\Roni-master\Roni-master\GameService\GameService\obj\Debug\GameService.pdb

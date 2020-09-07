@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="fourinrowDB_RoniShoseov_EilonOsherModelStoreContainer" CdmEntityContainer="fourinrowDB_RoniShoseov_EilonOsherEntities">
+    <EntitySetMapping Name="SingleGames">
+      <EntityTypeMapping TypeName="fourinrowDB_RoniShoseov_EilonOsherModel.SingleGame">
+        <MappingFragment StoreEntitySet="SingleGames">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Winner" ColumnName="Winner" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="GamePoint" ColumnName="GamePoint" />
+          <ScalarProperty Name="Player1_Name" ColumnName="Player1_UserName" />
+          <ScalarProperty Name="Player2_Name" ColumnName="Player2_UserName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="fourinrowDB_RoniShoseov_EilonOsherModel.User">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="HashedPassword" ColumnName="HashedPassword" />
+          <ScalarProperty Name="NumOfGames" ColumnName="NumOfGames" />
+          <ScalarProperty Name="NumOfWins" ColumnName="NumOfWins" />
+          <ScalarProperty Name="NumOfLosses" ColumnName="NumOfLosses" />
+          <ScalarProperty Name="Points" ColumnName="Points" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

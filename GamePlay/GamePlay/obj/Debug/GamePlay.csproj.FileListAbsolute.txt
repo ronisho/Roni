@@ -1,0 +1,57 @@
+C:\Roni\GamePlay\GamePlay\bin\Debug\GamePlay.exe.config
+C:\Roni\GamePlay\GamePlay\bin\Debug\GamePlay.exe
+C:\Roni\GamePlay\GamePlay\bin\Debug\EntityFramework.dll
+C:\Roni\GamePlay\GamePlay\bin\Debug\EntityFramework.SqlServer.dll
+C:\Roni\GamePlay\GamePlay\bin\Debug\EntityFramework.xml
+C:\Roni\GamePlay\GamePlay\bin\Debug\EntityFramework.SqlServer.xml
+C:\Roni\GamePlay\GamePlay\obj\Debug\GameWindow.g.cs
+C:\Roni\GamePlay\GamePlay\obj\Debug\MainWindow.g.cs
+C:\Roni\GamePlay\GamePlay\obj\Debug\Register.g.cs
+C:\Roni\GamePlay\GamePlay\obj\Debug\WaitingForGame.g.cs
+C:\Roni\GamePlay\GamePlay\obj\Debug\App.g.cs
+C:\Roni\GamePlay\GamePlay\obj\Debug\GamePlay_MarkupCompile.cache
+C:\Roni\GamePlay\GamePlay\obj\Debug\GamePlay_MarkupCompile.lref
+C:\Roni\GamePlay\GamePlay\obj\Debug\GameWindow.baml
+C:\Roni\GamePlay\GamePlay\obj\Debug\MainWindow.baml
+C:\Roni\GamePlay\GamePlay\obj\Debug\Register.baml
+C:\Roni\GamePlay\GamePlay\obj\Debug\WaitingForGame.baml
+C:\Roni\GamePlay\GamePlay\obj\Debug\GamePlay.g.resources
+C:\Roni\GamePlay\GamePlay\obj\Debug\GamePlay.Properties.Resources.resources
+C:\Roni\GamePlay\GamePlay\obj\Debug\GamePlay.csproj.GenerateResource.cache
+C:\Roni\GamePlay\GamePlay\obj\Debug\GamePlay.csproj.CoreCompileInputs.cache
+C:\Roni\GamePlay\GamePlay\obj\Debug\GamePlay.csproj.CopyComplete
+C:\Roni\GamePlay\GamePlay\obj\Debug\GamePlay.exe
+C:\Roni\GamePlay\GamePlay\obj\Debug\GamePlay.pdb
+C:\Roni\GamePlay\GamePlay\bin\Debug\GamePlay.pdb
+C:\Users\Roni Shoseuv\Downloads\Roni-master\Roni-master\GamePlay\GamePlay\bin\Debug\GamePlay.exe.config
+C:\Users\Roni Shoseuv\Downloads\Roni-master\Roni-master\GamePlay\GamePlay\bin\Debug\GamePlay.exe
+C:\Users\Roni Shoseuv\Downloads\Roni-master\Roni-master\GamePlay\GamePlay\bin\Debug\GamePlay.pdb
+C:\Users\Roni Shoseuv\Downloads\Roni-master\Roni-master\GamePlay\GamePlay\bin\Debug\EntityFramework.dll
+C:\Users\Roni Shoseuv\Downloads\Roni-master\Roni-master\GamePlay\GamePlay\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Roni Shoseuv\Downloads\Roni-master\Roni-master\GamePlay\GamePlay\bin\Debug\EntityFramework.xml
+C:\Users\Roni Shoseuv\Downloads\Roni-master\Roni-master\GamePlay\GamePlay\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Roni Shoseuv\Downloads\Roni-master\Roni-master\GamePlay\GamePlay\obj\Debug\GamePlay.csprojAssemblyReference.cache
+C:\Users\Roni Shoseuv\Downloads\Roni-master\Roni-master\GamePlay\GamePlay\obj\Debug\GameWindow.g.cs
+C:\Users\Roni Shoseuv\Downloads\Roni-master\Roni-master\GamePlay\GamePlay\obj\Debug\MainWindow.g.cs
+C:\Users\Roni Shoseuv\Downloads\Roni-master\Roni-master\GamePlay\GamePlay\obj\Debug\Register.g.cs
+C:\Users\Roni Shoseuv\Downloads\Roni-master\Roni-master\GamePlay\GamePlay\obj\Debug\WaitingForGame.g.cs
+C:\Users\Roni Shoseuv\Downloads\Roni-master\Roni-master\GamePlay\GamePlay\obj\Debug\App.g.cs
+C:\Users\Roni Shoseuv\Downloads\Roni-master\Roni-master\GamePlay\GamePlay\obj\Debug\GamePlay_MarkupCompile.cache
+C:\Users\Roni Shoseuv\Downloads\Roni-master\Roni-master\GamePlay\GamePlay\obj\Debug\GamePlay_MarkupCompile.lref
+C:\Users\Roni Shoseuv\Downloads\Roni-master\Roni-master\GamePlay\GamePlay\obj\Debug\GameWindow.baml
+C:\Users\Roni Shoseuv\Downloads\Roni-master\Roni-master\GamePlay\GamePlay\obj\Debug\MainWindow.baml
+C:\Users\Roni Shoseuv\Downloads\Roni-master\Roni-master\GamePlay\GamePlay\obj\Debug\Register.baml
+C:\Users\Roni Shoseuv\Downloads\Roni-master\Roni-master\GamePlay\GamePlay\obj\Debug\WaitingForGame.baml
+C:\Users\Roni Shoseuv\Downloads\Roni-master\Roni-master\GamePlay\GamePlay\obj\Debug\GamePlay.g.resources
+C:\Users\Roni Shoseuv\Downloads\Roni-master\Roni-master\GamePlay\GamePlay\obj\Debug\GamePlay.Properties.Resources.resources
+C:\Users\Roni Shoseuv\Downloads\Roni-master\Roni-master\GamePlay\GamePlay\obj\Debug\GamePlay.csproj.GenerateResource.cache
+C:\Users\Roni Shoseuv\Downloads\Roni-master\Roni-master\GamePlay\GamePlay\obj\Debug\GamePlay.csproj.CoreCompileInputs.cache
+C:\Users\Roni Shoseuv\Downloads\Roni-master\Roni-master\GamePlay\GamePlay\obj\Debug\GamePlay.csproj.CopyComplete
+C:\Users\Roni Shoseuv\Downloads\Roni-master\Roni-master\GamePlay\GamePlay\obj\Debug\GamePlay.exe
+C:\Users\Roni Shoseuv\Downloads\Roni-master\Roni-master\GamePlay\GamePlay\obj\Debug\GamePlay.pdb
+C:\Users\Roni Shoseuv\Downloads\Roni-master\Roni-master\GamePlay\GamePlay\bin\Debug\MaterialDesignColors.dll
+C:\Users\Roni Shoseuv\Downloads\Roni-master\Roni-master\GamePlay\GamePlay\bin\Debug\MaterialDesignThemes.Wpf.dll
+C:\Users\Roni Shoseuv\Downloads\Roni-master\Roni-master\GamePlay\GamePlay\bin\Debug\MaterialDesignColors.pdb
+C:\Users\Roni Shoseuv\Downloads\Roni-master\Roni-master\GamePlay\GamePlay\bin\Debug\MaterialDesignThemes.Wpf.pdb
+C:\Users\Roni Shoseuv\Downloads\Roni-master\Roni-master\GamePlay\GamePlay\bin\Debug\MaterialDesignThemes.Wpf.xml
+C:\Users\Roni Shoseuv\Downloads\Roni-master\Roni-master\GamePlay\GamePlay\obj\Debug\App.baml

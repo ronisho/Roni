@@ -1,0 +1,12 @@
+C:\Roni\FourinrowDB\FourinrowDB\bin\Debug\FourinrowDB.exe.config
+C:\Roni\FourinrowDB\FourinrowDB\bin\Debug\FourinrowDB.exe
+C:\Roni\FourinrowDB\FourinrowDB\bin\Debug\FourinrowDB.pdb
+C:\Roni\FourinrowDB\FourinrowDB\obj\Debug\FourinrowDB.csprojAssemblyReference.cache
+C:\Roni\FourinrowDB\FourinrowDB\obj\Debug\FourinrowDB.csproj.CoreCompileInputs.cache
+C:\Roni\FourinrowDB\FourinrowDB\obj\Debug\FourinrowDB.exe
+C:\Roni\FourinrowDB\FourinrowDB\obj\Debug\FourinrowDB.pdb
+C:\Roni\FourinrowDB\FourinrowDB\bin\Debug\EntityFramework.dll
+C:\Roni\FourinrowDB\FourinrowDB\bin\Debug\EntityFramework.SqlServer.dll
+C:\Roni\FourinrowDB\FourinrowDB\bin\Debug\EntityFramework.xml
+C:\Roni\FourinrowDB\FourinrowDB\bin\Debug\EntityFramework.SqlServer.xml
+C:\Roni\FourinrowDB\FourinrowDB\obj\Debug\FourinrowDB.csproj.CopyComplete
