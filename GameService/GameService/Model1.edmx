@@ -9,7 +9,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Winner" Type="nvarchar(max)" />
           <Property Name="Date" Type="datetime" Nullable="false" />
           <Property Name="Status" Type="bit" Nullable="false" />
@@ -73,13 +73,13 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Winner" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="Status" Type="Boolean" Nullable="false" />
           <Property Name="GamePoint" Type="Int32" Nullable="false" />
-          <Property Name="Player1_Name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
-          <Property Name="Player2_Name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="Player1_UserName" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="Player2_UserName" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="User" Relationship="Self.FK_dbo_SingleGames_dbo_Users_Player1_UserName" FromRole="SingleGames" ToRole="Users" />
           <NavigationProperty Name="User1" Relationship="Self.FK_dbo_SingleGames_dbo_Users_Player2_UserName" FromRole="SingleGames" ToRole="Users" />
         </EntityType>
@@ -104,7 +104,7 @@
               <PropertyRef Name="UserName" />
             </Principal>
             <Dependent Role="SingleGames">
-              <PropertyRef Name="Player1_Name" />
+              <PropertyRef Name="Player1_UserName" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -116,11 +116,11 @@
               <PropertyRef Name="UserName" />
             </Principal>
             <Dependent Role="SingleGames">
-              <PropertyRef Name="Player2_Name" />
+              <PropertyRef Name="Player2_UserName" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="fourinrowDB_RoniShoseov_EilonOsherEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="fourinrowDB_RoniShoseov_EilonOsher" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="SingleGames" EntityType="Self.SingleGame" />
           <EntitySet Name="Users" EntityType="Self.User" />
           <AssociationSet Name="FK_dbo_SingleGames_dbo_Users_Player1_UserName" Association="Self.FK_dbo_SingleGames_dbo_Users_Player1_UserName">
@@ -137,7 +137,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="fourinrowDB_RoniShoseov_EilonOsherModelStoreContainer" CdmEntityContainer="fourinrowDB_RoniShoseov_EilonOsherEntities">
+        <EntityContainerMapping StorageEntityContainer="fourinrowDB_RoniShoseov_EilonOsherModelStoreContainer" CdmEntityContainer="fourinrowDB_RoniShoseov_EilonOsher">
           <EntitySetMapping Name="SingleGames">
             <EntityTypeMapping TypeName="fourinrowDB_RoniShoseov_EilonOsherModel.SingleGame">
               <MappingFragment StoreEntitySet="SingleGames">
@@ -146,8 +146,8 @@
                 <ScalarProperty Name="Date" ColumnName="Date" />
                 <ScalarProperty Name="Status" ColumnName="Status" />
                 <ScalarProperty Name="GamePoint" ColumnName="GamePoint" />
-                <ScalarProperty Name="Player1_Name" ColumnName="Player1_UserName" />
-                <ScalarProperty Name="Player2_Name" ColumnName="Player2_UserName" />
+                <ScalarProperty Name="Player1_UserName" ColumnName="Player1_UserName" />
+                <ScalarProperty Name="Player2_UserName" ColumnName="Player2_UserName" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

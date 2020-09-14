@@ -30,7 +30,7 @@ namespace GamePlay
         private ClientCallback clientCallback;
         private Dictionary<int, string> colMap = new Dictionary<int, string>();
         private Dictionary<int, string> rowMap = new Dictionary<int, string>();
-        private static int ROW = 6;
+        private static int ROW = 7;
         private static int COL = 7;
         private char[,] board;
         private WaitingForGame watingWindow;
@@ -38,11 +38,11 @@ namespace GamePlay
         private char playerChar = 'y';
         private bool userExit = true;
 
-        private double DISC_SIZE = 70;
+        private double DISC_SIZE = 73;
 
-        private double WIDTH_MARGIN = 0.15;
-        private readonly static int HEIGHT_MARGIN = 20;
-        private readonly static int BOTTOM_MARGIN = 10;
+        private double WIDTH_MARGIN = 0.08;
+        private readonly static int HEIGHT_MARGIN = 8;
+        private readonly static int BOTTOM_MARGIN = -1;
         private readonly int[] board_state = new int[ROW];
 
         public GameWindow(string userName, string selectPlayer, GameServiceClient connectionToServer, ClientCallback clientCallback)
@@ -213,7 +213,7 @@ namespace GamePlay
                     this.watingWindow.Show();
                     Thread t = new Thread(watingWindow.imBack);
                     t.Start();
-                    // this.gameServer.PlayerRetrunToList(this.actualPlayer);
+                    this.gameServer.PlayerRetrunToList(this.actualPlayer);
                     this.userExit = false;
                     this.Close();
                 }

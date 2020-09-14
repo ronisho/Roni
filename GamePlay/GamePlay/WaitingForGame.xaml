@@ -6,9 +6,9 @@
         xmlns:local="clr-namespace:GamePlay"
         mc:Ignorable="d"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-        Title="Register" Height="500" Width="800" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" FontFamily="Segoe UI Emoji" WindowStyle="None"
+        Title="Lobby" Height="500" Width="800" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" FontFamily="Segoe UI Emoji"
         Closing="Window_Closing">
-    <Grid Name="mainGrid">
+    <Grid Name="mainGrid" Margin="0,0,-0.4,0.4">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="2*"/>
             <ColumnDefinition Width="*"/>
@@ -21,17 +21,31 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <StackPanel>
-            <Label Name="usrName" FontSize="15"/>
+            <Label Name="usrName" FontSize="25" HorizontalAlignment="Center"/>
         </StackPanel>
-        
+
+        <Label Name="lbName" Content="Name :" HorizontalAlignment="Left" Width="80" FontSize="14" Margin="10,10,0,57.4" Grid.Row="4"/>
+        <TextBox Name="tbName" Grid.Row="3" IsEnabled="False" Margin="65,89.4,352.8,63.4" Grid.RowSpan="2"/>
+        <Label Name="lbGames" Content="Games :" HorizontalAlignment="Left" Width="80" FontSize="14" Margin="10,57,0,10.4" Grid.Row="4"/>
+        <TextBox Name="tbGame" Grid.Row="4" IsEnabled="False" Margin="65,43,352.8,15.4"/>
+        <Label Name="lbWins" Content="Wins :" HorizontalAlignment="Left" Width="80" FontSize="14" Margin="189,10,0,57.4" Grid.Row="4"/>
+        <TextBox Name="tbWins" Grid.Row="3" IsEnabled="False" Margin="232,89.4,185.8,63.4" Grid.RowSpan="2"/>
+        <Label Name="lbLose" Content="Losses :" HorizontalAlignment="Left" Width="80" FontSize="14" Margin="189,57,0,10.4" Grid.Row="4"/>
+        <TextBox Name="tbLose" Grid.Row="4" IsEnabled="False" Margin="242,43,175.8,15.4"/>
+        <Label Name="lbPoint" Content="Point :" HorizontalAlignment="Left" Width="80" FontSize="14" Margin="380,10,0,57.4" Grid.Row="4"/>
+        <TextBox Name="tbPoint" Grid.Row="3" IsEnabled="False" Margin="425,89.4,40.8,63.4" Grid.RowSpan="2"/>
+        <Label Name="lbPer" Content="Percentage of wins :" HorizontalAlignment="Left" Width="139" FontSize="14" Margin="380,57,0,10.4" Grid.Row="4"/>
+        <TextBox Name="tbPer" Grid.Row="4" IsEnabled="False" Margin="511,43,219.6,15.4" Grid.ColumnSpan="2"/>
+
         <!--OPTIONS-->
         <GroupBox Name="gbOptions" Header="Game options" FontWeight="Bold" Grid.Row="0" 
-                 Margin="5,58,5,36" Grid.Column="0" Grid.RowSpan="4" Background="AliceBlue">
+                 Margin="5,78,4.8,4.8" Grid.Column="0" Grid.RowSpan="4" Background="AliceBlue">
             <Grid Name="gameGrid" >
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="*"/>
@@ -42,12 +56,34 @@
                         Play with selected player
                     </TextBlock>
                 </Button>
+                <Button Name="btLiveGame" Grid.Column="0" Grid.Row="1" Margin="80,10" Click="ClickLiveGame">
+                    <TextBlock TextWrapping="Wrap" FontSize="16" FontWeight="Bold">
+                        See GAME live
+                    </TextBlock>
+                </Button>
+                <Button Name="btInfo" Grid.Column="0" Grid.Row="2" Margin="80,10" Click="ClickInfo">
+                    <TextBlock TextWrapping="Wrap" FontSize="16" FontWeight="Bold">
+                        Information
+                    </TextBlock>
+                </Button>
+                <Button Name="btGamesHistory" Grid.Column="0" Grid.Row="3" Margin="80,10" Click="ClickGamesHistory">
+                    <TextBlock TextWrapping="Wrap" FontSize="16" FontWeight="Bold">
+                        Games history
+                    </TextBlock>
+                </Button>
+                <Button Name="btUsersHistory" Grid.Column="0" Grid.Row="4" Margin="80,10" Click="ClickGamesHistoryUsers">
+                    <TextBlock TextWrapping="Wrap" FontSize="16" FontWeight="Bold">
+                        Games history between users
+                    </TextBlock>
+                </Button>
 
             </Grid>
         </GroupBox>
         <GroupBox Name="gbConnected" Header="Available players" 
                       Grid.Column="1" Grid.RowSpan="4" Margin="5" FontWeight="Bold">
-            <ListBox Name="listOfAvliablePlayers"/>
+            <ListBox Name="listOfAvliablePlayers" SelectionChanged="selectionUser">
+                <TextBox Name="tbSerial" Grid.Row="0" Grid.ColumnSpan="3" IsEnabled="False" Margin="106,8,51,8"/>
+            </ListBox>
         </GroupBox>
     </Grid>
 </Window>

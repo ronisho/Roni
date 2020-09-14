@@ -19,8 +19,8 @@ namespace GameService
         public System.DateTime Date { get; set; }
         public bool Status { get; set; }
         public int GamePoint { get; set; }
-        public string Player1_Name { get; set; }
-        public string Player2_Name { get; set; }
+        public string Player1_UserName { get; set; }
+        public string Player2_UserName { get; set; }
     
         public virtual User User { get; set; }
         public virtual User User1 { get; set; }

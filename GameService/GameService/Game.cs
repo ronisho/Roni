@@ -24,13 +24,12 @@ namespace GameService
         private char[,] board;
         private string currentPlayer;
 
-        public GameZone(string p1 ,string p2, ICallback callback1, ICallback callback2, int gameID)
+        public GameZone(string p1 ,string p2, ICallback callback1, ICallback callback2)
         {
             this.p1 = p1;
             this.p2 = p2;
             this.callback1 = callback1;
             this.callback2 = callback2;
-            this.GameID = gameID;
             this.board = new char[ROW, COL];
             this.currentPlayer = p1;
             initBoard();
@@ -86,7 +85,7 @@ namespace GameService
                                 where u.UserName == player
                                 select u).FirstOrDefault();
                 var WinGamePoint = (from g in ctx.SingleGames
-                                 where g.Player1_Name == player & g.Status == true
+                                 where g.Player1_UserName == player & g.Status == true
                                  select g).FirstOrDefault();
 
                 if (checkInCol(p))
@@ -99,6 +98,7 @@ namespace GameService
                 }
                 UserWin.NumOfGames += 1;
                 UserWin.NumOfWins += 1;
+                WinGamePoint.Winner = player;
                 WinGamePoint.GamePoint = UserWin.Points;
                 WinGamePoint.Status = false;
                 ctx.SaveChanges();
@@ -128,9 +128,9 @@ namespace GameService
         private int cntSquare(char player)
         {
             int cnt = 0;
-            for (int i = 0; i < COL; i++)
+            for (int i = 0; i < ROW; i++)
             {
-                for (int j = 0; j < ROW; j++)
+                for (int j = 0; j < COL; j++)
                     if (board[i, j] == player)
                         cnt++;
             }
@@ -138,17 +138,18 @@ namespace GameService
         }
         private bool checkInCol(char player)
         {
-            bool ret;
-            for (int i = 0; i < COL; i++)
+            int cnt = 0;
+            for (int i = 0; i < ROW; i++)
             {
-                ret = false;
                 for (int j = 0; j < COL; j++)
                     if (board[i, j] == player)
-                        ret = true;
-                if (!ret)
-                    return false;
+                    {
+                        cnt++;
+                        if (cnt >= 7)
+                            return true;
+                    }
             }
-            return true;
+            return false;
         }
 
 

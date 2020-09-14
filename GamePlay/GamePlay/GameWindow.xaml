@@ -5,8 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GamePlay"
         mc:Ignorable="d"
-        Title="GameWindow" Height="625" Width="625" Closing="Window_Closing">
-    
+        Title="GameWindow" Height="625" Width="625" Closing="Window_Closing" WindowStyle="None" ResizeMode="NoResize">
+
     <Grid >
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
@@ -14,7 +14,7 @@
         </Grid.RowDefinitions>
         <Canvas Name="gamePicture" MouseDown="gamePicture_MouseDown">
             <Canvas.Background>
-                <ImageBrush ImageSource="board_image_6-7.jpeg"/>
+                <ImageBrush ImageSource="board_image.jpeg"/>
             </Canvas.Background>
         </Canvas>
         <WrapPanel Grid.Row="1">

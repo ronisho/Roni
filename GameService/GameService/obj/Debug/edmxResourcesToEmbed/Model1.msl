@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="fourinrowDB_RoniShoseov_EilonOsherModelStoreContainer" CdmEntityContainer="fourinrowDB_RoniShoseov_EilonOsherEntities">
+  <EntityContainerMapping StorageEntityContainer="fourinrowDB_RoniShoseov_EilonOsherModelStoreContainer" CdmEntityContainer="fourinrowDB_RoniShoseov_EilonOsher">
     <EntitySetMapping Name="SingleGames">
       <EntityTypeMapping TypeName="fourinrowDB_RoniShoseov_EilonOsherModel.SingleGame">
         <MappingFragment StoreEntitySet="SingleGames">
@@ -9,8 +9,8 @@
           <ScalarProperty Name="Date" ColumnName="Date" />
           <ScalarProperty Name="Status" ColumnName="Status" />
           <ScalarProperty Name="GamePoint" ColumnName="GamePoint" />
-          <ScalarProperty Name="Player1_Name" ColumnName="Player1_UserName" />
-          <ScalarProperty Name="Player2_Name" ColumnName="Player2_UserName" />
+          <ScalarProperty Name="Player1_UserName" ColumnName="Player1_UserName" />
+          <ScalarProperty Name="Player2_UserName" ColumnName="Player2_UserName" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

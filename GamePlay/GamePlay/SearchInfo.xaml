@@ -1,0 +1,38 @@
+﻿<Window x:Class="GamePlay.SearchInfo"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GamePlay"
+        mc:Ignorable="d"
+        Title="Subscriber Details" Height="500" Width="800" ResizeMode="NoResize" FontFamily="Segoe UI Emoji">
+    <Grid>
+        <Rectangle Height="280" VerticalAlignment="Top">
+            <Rectangle.Fill>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF2281D1"/>
+                    <GradientStop Color="#FF34268A" Offset="1"/>
+                    <GradientStop Color="#FF33288B" Offset="0.546"/>
+                </LinearGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+
+        <Rectangle Height="444" VerticalAlignment="Bottom" Margin="22,0,23,22" RadiusY="10" RadiusX="10" Fill="White">
+            <Rectangle.Effect>
+                <DropShadowEffect BlurRadius="15" Direction="0" RenderingBias="Quality" ShadowDepth="1" Color="#FFBBBBBB"/>
+            </Rectangle.Effect>
+        </Rectangle>
+        <Grid VerticalAlignment="Bottom" Margin="35,0,35,22" Height="444">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Label Content="Sorted subscription information" Grid.Row="0" HorizontalAlignment="Center" Foreground="Gray" FontSize="25" />
+            <ComboBox Name="sortingOpt" HorizontalAlignment="Center" Grid.Row="1" Width="300"/>
+            <Button Width="150" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="287,0,287,3" Content="Sort OUT" Click="sortClicked" Grid.Row="2" Height="27"/>
+            <ListBox Name="lbSortResults" IsEnabled="False" Grid.Row="3" />
+        </Grid>
+    </Grid>
+</Window>

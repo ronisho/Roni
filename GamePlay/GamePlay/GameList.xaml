@@ -6,9 +6,13 @@
         xmlns:local="clr-namespace:GamePlay"
         mc:Ignorable="d"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-        Title="GameList" Height="500" Width="350" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" FontFamily="Segoe UI Emoji" WindowStyle="None" Closing="Window_Closing">
+        Title="History list" Height="500" Width="350" ResizeMode="NoResize" FontFamily="Segoe UI Emoji">
     <Grid>
-        <Rectangle Height="280" VerticalAlignment="Top">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="45*"/>
+            <ColumnDefinition Width="299*"/>
+        </Grid.ColumnDefinitions>
+        <Rectangle Height="280" VerticalAlignment="Top" Grid.ColumnSpan="2">
             <Rectangle.Fill>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="#FF2281D1"/>
@@ -18,21 +22,18 @@
             </Rectangle.Fill>
         </Rectangle>
 
-        <Rectangle Width="280" Height="444" VerticalAlignment="Bottom" Margin="35,0,35.4,22" RadiusY="10" RadiusX="10" Fill="White">
+        <Rectangle Width="280" Height="444" VerticalAlignment="Bottom" Margin="35,0,29,22.4" RadiusY="10" RadiusX="10" Fill="White" Grid.ColumnSpan="2">
             <Rectangle.Effect>
                 <DropShadowEffect BlurRadius="15" Direction="0" RenderingBias="Quality" ShadowDepth="1" Color="#FFBBBBBB"/>
             </Rectangle.Effect>
         </Rectangle>
-        <Grid VerticalAlignment="Bottom" Margin="35,0,35.4,226" Height="240">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="229*"/>
-                <ColumnDefinition Width="51*"/>
-            </Grid.ColumnDefinitions>
-            <Label Content="Game List" VerticalAlignment="Top" Margin="66,0,42.8,0" Foreground="Gray" FontSize="25"/>
-            <TextBlock>
-                
-            </TextBlock>
-
+        <Grid VerticalAlignment="Bottom" Margin="35,0,35,22.4" Height="444" Grid.ColumnSpan="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Label Content="Games history list" Grid.Row="0" HorizontalAlignment="Center" Foreground="Gray" FontSize="25"/>
+            <ListBox x:Name="lbGameList" Grid.Row="1" Margin="5"/>
         </Grid>
     </Grid>
 </Window>

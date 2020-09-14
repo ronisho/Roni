@@ -19,9 +19,16 @@ namespace GamePlay
     /// </summary>
     public partial class GameList : Window
     {
-        public GameList()
+        public GameList(List<string> data)
         {
             InitializeComponent();
+            updateData(data);
+        }
+
+        private void updateData(List<string> data)
+        {
+            lbGameList.ItemsSource = null;
+            lbGameList.ItemsSource = data;
         }
     }
 }

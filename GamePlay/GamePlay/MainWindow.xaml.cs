@@ -1,4 +1,5 @@
 ﻿using GamePlay.GameServiceRef;
+using System;
 using System.Collections.Generic;
 using System.Security.Cryptography;
 using System.ServiceModel;
@@ -42,6 +43,14 @@ namespace GamePlay
                 catch (FaultException<WrongPassword> err)
                 {
                     MessageBox.Show(err.Detail.Details, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+                catch (FaultException<UnregisteredUser> err)
+                {
+                    MessageBox.Show(err.Detail.Details, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message + "\n" + "Type:" + ex.GetType() + "\n" + ex.InnerException, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
 
             }

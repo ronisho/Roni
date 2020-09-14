@@ -43,7 +43,23 @@ namespace GameService
         [OperationContract]
         Dictionary<string, ICallback> GetAvliableClientsForUser(string user);
 
+        [OperationContract]
+        List<string> liveGamesList();
 
+        [OperationContract]
+        List<string> createPlayerData();
+
+        [OperationContract]
+        List<string> getSortedList(string sortBy);
+
+        [OperationContract]
+        List<string> gameDataBetween(string Player1, string Player2);
+
+        [OperationContract]
+        List<string> gamesHistory();
+
+        [OperationContract]
+        Dictionary<string, string> userData(string name);
     }
 
     public interface ICallback

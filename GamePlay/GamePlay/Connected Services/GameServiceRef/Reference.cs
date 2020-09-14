@@ -232,6 +232,42 @@ namespace GamePlay.GameServiceRef {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGameService/GetAvliableClientsForUser", ReplyAction="http://tempuri.org/IGameService/GetAvliableClientsForUserResponse")]
         System.Threading.Tasks.Task<System.Collections.Generic.Dictionary<string, object>> GetAvliableClientsForUserAsync(string user);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGameService/liveGamesList", ReplyAction="http://tempuri.org/IGameService/liveGamesListResponse")]
+        string[] liveGamesList();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGameService/liveGamesList", ReplyAction="http://tempuri.org/IGameService/liveGamesListResponse")]
+        System.Threading.Tasks.Task<string[]> liveGamesListAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGameService/createPlayerData", ReplyAction="http://tempuri.org/IGameService/createPlayerDataResponse")]
+        string[] createPlayerData();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGameService/createPlayerData", ReplyAction="http://tempuri.org/IGameService/createPlayerDataResponse")]
+        System.Threading.Tasks.Task<string[]> createPlayerDataAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGameService/getSortedList", ReplyAction="http://tempuri.org/IGameService/getSortedListResponse")]
+        string[] getSortedList(string sortBy);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGameService/getSortedList", ReplyAction="http://tempuri.org/IGameService/getSortedListResponse")]
+        System.Threading.Tasks.Task<string[]> getSortedListAsync(string sortBy);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGameService/gameDataBetween", ReplyAction="http://tempuri.org/IGameService/gameDataBetweenResponse")]
+        string[] gameDataBetween(string Player1, string Player2);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGameService/gameDataBetween", ReplyAction="http://tempuri.org/IGameService/gameDataBetweenResponse")]
+        System.Threading.Tasks.Task<string[]> gameDataBetweenAsync(string Player1, string Player2);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGameService/gamesHistory", ReplyAction="http://tempuri.org/IGameService/gamesHistoryResponse")]
+        string[] gamesHistory();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGameService/gamesHistory", ReplyAction="http://tempuri.org/IGameService/gamesHistoryResponse")]
+        System.Threading.Tasks.Task<string[]> gamesHistoryAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGameService/userData", ReplyAction="http://tempuri.org/IGameService/userDataResponse")]
+        System.Collections.Generic.Dictionary<string, string> userData(string name);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGameService/userData", ReplyAction="http://tempuri.org/IGameService/userDataResponse")]
+        System.Threading.Tasks.Task<System.Collections.Generic.Dictionary<string, string>> userDataAsync(string name);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -354,6 +390,54 @@ namespace GamePlay.GameServiceRef {
         
         public System.Threading.Tasks.Task<System.Collections.Generic.Dictionary<string, object>> GetAvliableClientsForUserAsync(string user) {
             return base.Channel.GetAvliableClientsForUserAsync(user);
+        }
+        
+        public string[] liveGamesList() {
+            return base.Channel.liveGamesList();
+        }
+        
+        public System.Threading.Tasks.Task<string[]> liveGamesListAsync() {
+            return base.Channel.liveGamesListAsync();
+        }
+        
+        public string[] createPlayerData() {
+            return base.Channel.createPlayerData();
+        }
+        
+        public System.Threading.Tasks.Task<string[]> createPlayerDataAsync() {
+            return base.Channel.createPlayerDataAsync();
+        }
+        
+        public string[] getSortedList(string sortBy) {
+            return base.Channel.getSortedList(sortBy);
+        }
+        
+        public System.Threading.Tasks.Task<string[]> getSortedListAsync(string sortBy) {
+            return base.Channel.getSortedListAsync(sortBy);
+        }
+        
+        public string[] gameDataBetween(string Player1, string Player2) {
+            return base.Channel.gameDataBetween(Player1, Player2);
+        }
+        
+        public System.Threading.Tasks.Task<string[]> gameDataBetweenAsync(string Player1, string Player2) {
+            return base.Channel.gameDataBetweenAsync(Player1, Player2);
+        }
+        
+        public string[] gamesHistory() {
+            return base.Channel.gamesHistory();
+        }
+        
+        public System.Threading.Tasks.Task<string[]> gamesHistoryAsync() {
+            return base.Channel.gamesHistoryAsync();
+        }
+        
+        public System.Collections.Generic.Dictionary<string, string> userData(string name) {
+            return base.Channel.userData(name);
+        }
+        
+        public System.Threading.Tasks.Task<System.Collections.Generic.Dictionary<string, string>> userDataAsync(string name) {
+            return base.Channel.userDataAsync(name);
         }
     }
 }

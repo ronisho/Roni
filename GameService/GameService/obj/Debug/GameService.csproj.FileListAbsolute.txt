@@ -41,3 +41,50 @@ C:\Users\Roni Shoseuv\Downloads\Roni-master\Roni-master\GameService\GameService\
 C:\Users\Roni Shoseuv\Downloads\Roni-master\Roni-master\GameService\GameService\obj\Debug\GameService.csproj.CopyComplete
 C:\Users\Roni Shoseuv\Downloads\Roni-master\Roni-master\GameService\GameService\obj\Debug\GameService.dll
 C:\Users\Roni Shoseuv\Downloads\Roni-master\Roni-master\GameService\GameService\obj\Debug\GameService.pdb
+C:\Roni\Roni-master\GameService\GameService\bin\Debug\GameService.dll.config
+C:\Roni\Roni-master\GameService\GameService\bin\Debug\GameService.dll
+C:\Roni\Roni-master\GameService\GameService\bin\Debug\GameService.pdb
+C:\Roni\Roni-master\GameService\GameService\bin\Debug\EntityFramework.dll
+C:\Roni\Roni-master\GameService\GameService\bin\Debug\EntityFramework.SqlServer.dll
+C:\Roni\Roni-master\GameService\GameService\bin\Debug\EntityFramework.xml
+C:\Roni\Roni-master\GameService\GameService\bin\Debug\EntityFramework.SqlServer.xml
+C:\Roni\Roni-master\GameService\GameService\obj\Debug\GameService.csprojAssemblyReference.cache
+C:\Roni\Roni-master\GameService\GameService\obj\Debug\GameService.csproj.CoreCompileInputs.cache
+C:\Roni\Roni-master\GameService\GameService\obj\Debug\GameService.csproj.CopyComplete
+C:\Roni\Roni-master\GameService\GameService\obj\Debug\GameService.dll
+C:\Roni\Roni-master\GameService\GameService\obj\Debug\GameService.pdb
+C:\Users\Roni Shoseuv\Downloads\Roni-master\Roni-master\Roni-master\GameService\GameService\bin\Debug\GameService.dll.config
+C:\Users\Roni Shoseuv\Downloads\Roni-master\Roni-master\Roni-master\GameService\GameService\bin\Debug\GameService.dll
+C:\Users\Roni Shoseuv\Downloads\Roni-master\Roni-master\Roni-master\GameService\GameService\bin\Debug\GameService.pdb
+C:\Users\Roni Shoseuv\Downloads\Roni-master\Roni-master\Roni-master\GameService\GameService\bin\Debug\EntityFramework.dll
+C:\Users\Roni Shoseuv\Downloads\Roni-master\Roni-master\Roni-master\GameService\GameService\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Roni Shoseuv\Downloads\Roni-master\Roni-master\Roni-master\GameService\GameService\bin\Debug\EntityFramework.xml
+C:\Users\Roni Shoseuv\Downloads\Roni-master\Roni-master\Roni-master\GameService\GameService\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Roni Shoseuv\Downloads\Roni-master\Roni-master\Roni-master\GameService\GameService\obj\Debug\GameService.csprojAssemblyReference.cache
+C:\Users\Roni Shoseuv\Downloads\Roni-master\Roni-master\Roni-master\GameService\GameService\obj\Debug\GameService.csproj.CoreCompileInputs.cache
+C:\Users\Roni Shoseuv\Downloads\Roni-master\Roni-master\Roni-master\GameService\GameService\obj\Debug\GameService.csproj.CopyComplete
+C:\Users\Roni Shoseuv\Downloads\Roni-master\Roni-master\Roni-master\GameService\GameService\obj\Debug\GameService.dll
+C:\Users\Roni Shoseuv\Downloads\Roni-master\Roni-master\Roni-master\GameService\GameService\obj\Debug\GameService.pdb
+C:\Users\USER\Desktop\temp\GameService\GameService\bin\Debug\GameService.dll.config
+C:\Users\USER\Desktop\temp\GameService\GameService\bin\Debug\GameService.dll
+C:\Users\USER\Desktop\temp\GameService\GameService\bin\Debug\GameService.pdb
+C:\Users\USER\Desktop\temp\GameService\GameService\bin\Debug\EntityFramework.dll
+C:\Users\USER\Desktop\temp\GameService\GameService\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\USER\Desktop\temp\GameService\GameService\bin\Debug\EntityFramework.xml
+C:\Users\USER\Desktop\temp\GameService\GameService\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\USER\Desktop\temp\GameService\GameService\obj\Debug\GameService.csproj.CoreCompileInputs.cache
+C:\Users\USER\Desktop\temp\GameService\GameService\obj\Debug\GameService.csproj.CopyComplete
+C:\Users\USER\Desktop\temp\GameService\GameService\obj\Debug\GameService.dll
+C:\Users\USER\Desktop\temp\GameService\GameService\obj\Debug\GameService.pdb
+C:\Users\Roni Shoseuv\Downloads\GameDaniFucker\GameService\GameService\obj\Debug\GameService.csprojAssemblyReference.cache
+C:\Users\Roni Shoseuv\Downloads\GameDaniFucker\GameService\GameService\obj\Debug\GameService.csproj.CoreCompileInputs.cache
+C:\Users\Roni Shoseuv\Downloads\GameDaniFucker\GameService\GameService\obj\Debug\GameService.dll
+C:\Users\Roni Shoseuv\Downloads\GameDaniFucker\GameService\GameService\obj\Debug\GameService.pdb
+C:\Users\Roni Shoseuv\Downloads\GameDaniFucker\GameService\GameService\bin\Debug\GameService.dll.config
+C:\Users\Roni Shoseuv\Downloads\GameDaniFucker\GameService\GameService\bin\Debug\GameService.dll
+C:\Users\Roni Shoseuv\Downloads\GameDaniFucker\GameService\GameService\bin\Debug\GameService.pdb
+C:\Users\Roni Shoseuv\Downloads\GameDaniFucker\GameService\GameService\bin\Debug\EntityFramework.dll
+C:\Users\Roni Shoseuv\Downloads\GameDaniFucker\GameService\GameService\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Roni Shoseuv\Downloads\GameDaniFucker\GameService\GameService\bin\Debug\EntityFramework.xml
+C:\Users\Roni Shoseuv\Downloads\GameDaniFucker\GameService\GameService\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Roni Shoseuv\Downloads\GameDaniFucker\GameService\GameService\obj\Debug\GameService.csproj.CopyComplete

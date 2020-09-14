@@ -15,7 +15,6 @@ namespace GameService
           ConcurrencyMode = ConcurrencyMode.Multiple)]
     public class GameServiceClass : IGameService
     {
-        private int gameID = 0;
         Dictionary<string, ICallback> avilableClinets = new Dictionary<string, ICallback>();
         Dictionary<string, GameZone> games = new Dictionary<string, GameZone>();
         public void Disconnect(string player)
@@ -48,7 +47,7 @@ namespace GameService
                 {
                     ConnectedFault userNameTaken = new ConnectedFault
                     {
-                        Details = $"{name} is taken, please pick another."
+                        Details = name +" is taken, please pick another."
                     };
                     throw new FaultException<ConnectedFault>(userNameTaken);
                 }
@@ -65,11 +64,11 @@ namespace GameService
                 ctx.SaveChanges();
 
                 ICallback regCallback = OperationContext.Current.GetCallbackChannel<ICallback>();
-                avilableClinets.Add(name, regCallback);
                 updateAllClinetToUpdateList(name);
+                avilableClinets.Add(name, regCallback);
+               
             }
         }
-
 
         private bool userExist(string name)
         {
@@ -120,24 +119,23 @@ namespace GameService
         public void StartGameBetweenPlayers(string p1, string p2)
         {
             this.avilableClinets[p2].StartGameUser(p1);
-            GameZone gameZone = new GameZone(p1, p2, this.avilableClinets[p1], this.avilableClinets[p2], ++gameID);
+            GameZone gameZone = new GameZone(p1, p2, this.avilableClinets[p1], this.avilableClinets[p2]);
+            games.Add(p1, gameZone);
+            games.Add(p2, gameZone);
             using (var ctx = new fourinrowDB_RoniShoseov_EilonOsherContext())
             {
                 DateTime localTime = DateTime.Now;
 
                 SingleGame newGame = new SingleGame
                 {
-                    Id = gameID,
                     Date = localTime,
-                    Player1_Name = p1,
-                    Player2_Name = p2,
+                    Player1_UserName = p1,
+                    Player2_UserName = p2,
                     GamePoint = 0,
                     Status = true
                 };
                 ctx.SingleGames.Add(newGame);
                 ctx.SaveChanges();
-
-                GameZone gm = new GameZone(p1, p2, avilableClinets[p1], avilableClinets[p2], gameID);
             }
             updateAllOtherUserToUpdateList(p1, p2);
         }
@@ -190,8 +188,6 @@ namespace GameService
                 };
                 throw new FaultException<ConnectedFault>(userExsists);
             }
-            MessageBox.Show("Roni 1");
-
             using (var ctx = new fourinrowDB_RoniShoseov_EilonOsherContext())
             {
                 var findUser = (from u in ctx.Users
@@ -201,7 +197,7 @@ namespace GameService
                 {
                     UnregisteredUser userNotExsists = new UnregisteredUser
                     {
-                        Details = "{user} does not exist in the database. Please register."
+                        Details = user + "does not exist in the database. Please register."
                     };
                     throw new FaultException<UnregisteredUser>(userNotExsists);
                     
@@ -213,7 +209,6 @@ namespace GameService
                     {
                         Details = "Wrong password entered, please try again"
                     };
-                    MessageBox.Show("Roni2");
                     throw new FaultException<WrongPassword>(userWrongPassword);
                 }
                 else
@@ -232,6 +227,189 @@ namespace GameService
         {
             //need to implnet check in data base if is cuurect
             return false;
+        }
+
+        public List<string> createPlayerData()
+        {
+            using (var ctx = new fourinrowDB_RoniShoseov_EilonOsherContext())
+            {
+                var userData = (from u in ctx.Users
+                                select u.UserName).ToList();
+                return userData;
+            }
+        }
+
+        public List<string> gameDataBetween(string Player1, string Player2)
+        {
+            using (var ctx = new fourinrowDB_RoniShoseov_EilonOsherContext())
+            {
+                List<string> dataBetween = new List<string>();
+                var match = (from g in ctx.SingleGames
+                                    where (((g.Player1_UserName == Player1 && g.Player2_UserName == Player2)
+                                            || (g.Player1_UserName == Player2 && g.Player2_UserName == Player1))
+                                            && g.Status == false)
+                                    select g).ToList();
+                if (match.Count == 0) return dataBetween;
+                dataBetween.Add(percentageOfWins(match, Player1).ToString());
+                dataBetween.Add(percentageOfWins(match, Player2).ToString());
+                foreach (var game in match)
+                {
+                    dataBetween.Add(
+                        $"Game ID: {game.Id.ToString()}\n" +
+                        $"Date: {game.Date.ToString()}\n" +
+                        $"Players: {game.Player1_UserName} vs. {game.Player2_UserName}\n" +
+                        $"♛{game.Winner} WON! With {game.GamePoint.ToString()} points!\n" +
+                        $"▁ ▂ ღ(¯`◕‿◕´¯)(¯`◕‿◕´¯)ღ ▂ ▁"
+                    );
+                }
+                return dataBetween;
+            }
+        }
+
+
+        private double percentageOfWins(List<SingleGame> list, string player)
+        {
+            int wins = 0;
+            foreach (var game in list)
+            {
+                if (game.Winner == player) wins++;
+            }
+            return ((double)wins / list.Count()) * 100;
+        }
+
+
+
+        public List<string> liveGamesList()
+        {
+            using (var ctx = new fourinrowDB_RoniShoseov_EilonOsherContext())
+            {
+                List<string> liveGamesData = new List<string>();
+                var LiveGames = (from g in ctx.SingleGames
+                                 where g.Status == true
+                                 select g).ToList();
+                if (LiveGames.Count == 0) return liveGamesData;
+                foreach (var game in LiveGames)
+                {
+                    liveGamesData.Add(
+                        $"Start Time: {game.Date.ToString()}\n" +
+                        $"Players: {game.Player1_UserName} vs. {game.Player2_UserName}\n"
+                        );
+                }
+                return liveGamesData;
+            }
+        }
+
+        public List<string> gamesHistory()
+        {
+            List<string> gamesHistory = new List<string>();
+            using (var ctx = new fourinrowDB_RoniShoseov_EilonOsherContext())
+            {
+                var GamesHistory = (from g in ctx.SingleGames
+                                where g.GamePoint != 0 && g.Status == false
+                                select g).ToList();
+
+                foreach (var game in GamesHistory)
+                {
+                    gamesHistory.Add(
+                        $"Game ID: {game.Id.ToString()}\n" +
+                        $"Date: {game.Date.ToString()}\n" +
+                        $"Players: {game.Player1_UserName} vs. {game.Player2_UserName}\n" +
+                        $"♛{game.Winner} WON! With {game.GamePoint.ToString()} points!\n" +
+                        $"▁ ▂ ღ(¯`◕‿◕´¯)(¯`◕‿◕´¯)ღ ▂ ▁"
+                        );
+                }
+                return gamesHistory;
+            }
+
+        }
+
+        public Dictionary<string, string> userData(string name)
+        {
+            using (var ctx = new fourinrowDB_RoniShoseov_EilonOsherContext())
+            {
+                Dictionary<string, string> userData = new Dictionary<string, string>();
+                var userStats = (from u in ctx.Users
+                                 where u.UserName == name
+                                 select u).FirstOrDefault();
+                if (userStats == null) return userData;
+                userData.Add("User", userStats.UserName);
+                userData.Add("Games", userStats.NumOfGames.ToString());
+                userData.Add("Wins", userStats.NumOfWins.ToString());
+                userData.Add("Losses", userStats.NumOfLosses.ToString());
+                userData.Add("Points", userStats.Points.ToString());
+                return userData;
+            }
+        }
+
+        private List<string> resultToString(List<User> list, string sortBy)
+        {
+            List<string> listStr = new List<string>();
+            switch (sortBy)
+            {
+                case "Number of Games":
+                    foreach (var user in list)
+                    {
+                        listStr.Add($"{user.UserName} ; Games: {user.NumOfGames} ; Wins: {user.NumOfWins} ; Loses: {user.NumOfLosses} ; Points: {user.Points}");
+                    }
+                    return listStr;
+                case "Number of Wins":
+                    foreach (var user in list)
+                    {
+                        listStr.Add($"{user.UserName} ; Wins: {user.NumOfWins} ; Games: {user.NumOfGames} ; Loses: {user.NumOfLosses} ; Points: {user.Points}");
+                    }
+                    return listStr;
+                case "Number of Losses":
+                    foreach (var user in list)
+                    {
+                        listStr.Add($"{user.UserName} ; Loses: {user.NumOfLosses} ; Games: {user.NumOfGames} ; Wins: {user.NumOfWins} ; Points: {user.Points}");
+                    }
+                    return listStr;
+                case "Number of Points":
+                    foreach (var user in list)
+                    {
+                        listStr.Add($"{user.UserName} ; Points: {user.Points} ; Games: {user.NumOfGames} ; Wins: {user.NumOfWins} ; Loses: {user.NumOfLosses}");
+                    }
+                    return listStr;
+                default:
+                    return null;
+            }
+        }
+
+        public List<string> getSortedList(string sortBy)
+        {
+            using (var ctx = new fourinrowDB_RoniShoseov_EilonOsherContext())
+            {
+                switch (sortBy)
+                {
+                    case "Username":
+                        var byUsername = (from u in ctx.Users
+                                      orderby u.UserName descending
+                                      select u.UserName).ToList();
+                        return byUsername;
+                    case "Number of Games":
+                        var byNumOfGames = (from u in ctx.Users
+                                       orderby u.NumOfGames descending
+                                       select u).ToList();
+                        return resultToString(byNumOfGames, sortBy);
+                    case "Number of Wins":
+                        var byNumOfWins = (from u in ctx.Users
+                                      orderby u.NumOfWins descending
+                                      select u).ToList();
+                        return resultToString(byNumOfWins, sortBy);
+                    case "Number of Losses":
+                        var byNumOfLooses = (from u in ctx.Users
+                                        orderby u.NumOfLosses descending
+                                        select u).ToList();
+                        return resultToString(byNumOfLooses, sortBy);
+                    case "Number of Points":
+                        var byNumOfPoints = (from u in ctx.Users
+                                        orderby u.Points descending
+                                        select u).ToList();
+                        return resultToString(byNumOfPoints, sortBy);
+                    default:
+                        return null;
+                }
+            }
         }
 
 

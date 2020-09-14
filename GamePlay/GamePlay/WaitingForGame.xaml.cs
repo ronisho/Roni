@@ -136,5 +136,85 @@ namespace GamePlay
             Thread t = new Thread(() => connectionToServer.Disconnect(this.userName));
             t.Start();
         }
+
+        private void ClickLiveGame(object sender, RoutedEventArgs e)
+        {
+            List<string> gameList = connectionToServer.liveGamesList().ToList();
+            if (gameList.Count == 0)
+            {
+                System.Windows.MessageBox.Show($"Sorry.. currently no live games", "Info", MessageBoxButton.OK, MessageBoxImage.Information);
+                return;
+            }
+
+            LiveGame window = new LiveGame(gameList);
+            window.ShowDialog();
+        }
+
+        private void ClickInfo(object sender, RoutedEventArgs e)
+        {
+            SearchInfo window = new SearchInfo(clientCallback, connectionToServer);
+            window.ShowDialog();
+        }
+
+        private void ClickGamesHistory(object sender, RoutedEventArgs e)
+        {
+            List<string> historyList = connectionToServer.gamesHistory().ToList();
+            if (historyList.Count == 0)
+            {
+                System.Windows.MessageBox.Show("No DATA available", "Info", MessageBoxButton.OK, MessageBoxImage.Information);
+                return;
+            }
+            GameList window = new GameList(historyList);
+            window.ShowDialog();
+        }
+
+        private void ClickGamesHistoryUsers(object sender, RoutedEventArgs e)
+        {
+            List<string> usersList = connectionToServer.createPlayerData().ToList();
+            if (usersList.Count == 0)
+            {
+                System.Windows.MessageBox.Show("No DATA available", "Info", MessageBoxButton.OK, MessageBoxImage.Information);
+                return;
+            }
+            HistoryBetween window = new HistoryBetween(usersList, clientCallback, connectionToServer);
+            window.ShowDialog();
+        }
+
+        private void selectionUser(object sender, SelectionChangedEventArgs e)
+        {
+            if (listOfAvliablePlayers.SelectedItem != null)
+            {
+                string name = listOfAvliablePlayers.SelectedItem.ToString();
+                var dataUser = connectionToServer.userData(name);
+                tbName.Text = dataUser["User"];
+                tbGame.Text = dataUser["Games"];
+                tbWins.Text = dataUser["Wins"];
+                tbLose.Text = dataUser["Losses"];
+                tbPoint.Text = dataUser["Points"];
+
+                float wins = float.Parse(dataUser["Wins"]);
+                int games = int.Parse(dataUser["Games"]);
+
+                if (games != 0)
+                {
+                    string per = (wins / games * 100).ToString();
+                    if (per.Length > 4)
+                        tbPer.Text = per.Substring(0, 4);
+                    else tbPer.Text = per;
+                }
+                else
+                {
+                    tbPer.Text = "0";
+                }
+            }
+            else
+            {
+                tbName.Clear();
+                tbGame.Clear();
+                tbWins.Clear();
+                tbLose.Clear();
+                tbPoint.Clear();
+            }
+        }
     }
 }

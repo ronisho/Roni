@@ -3,6 +3,7 @@ using System;
 using System.Security.Cryptography;
 using System.ServiceModel;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Forms;
 
@@ -13,7 +14,8 @@ namespace GamePlay
     /// </summary>
     public partial class Register : Window
     {
-
+        ClientCallback callback;
+        GameServiceClient client;
         public Register(ClientCallback cc, GameServiceClient gsc )
         {
             InitializeComponent();
@@ -21,8 +23,6 @@ namespace GamePlay
             client = gsc;
 
         }
-        ClientCallback callback;
-        GameServiceClient client;
 
         private void signUpClicked(object sender, RoutedEventArgs e)
         {
@@ -30,6 +30,16 @@ namespace GamePlay
                string.IsNullOrEmpty(pass.Password))
             {
                 System.Windows.MessageBox.Show("Please fill all data", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+            if (!checkedName(name.Text.Trim()))
+            {
+                System.Windows.MessageBox.Show("Invalid username. Please only letters", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+            if (!checkedPass(pass.Password.Trim()))
+            {
+                System.Windows.MessageBox.Show("Incorrect password. Minimum 5 characters  no more than 10", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
             try
@@ -51,6 +61,26 @@ namespace GamePlay
                 System.Windows.MessageBox.Show(ex.Message + "\n" + "Type:" + ex.GetType() + "\n" + ex.InnerException, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
 
+        }
+
+        private bool checkedName(string v)
+        {
+            string regex = @"[a-zA-Z0-9.!?\\-]+$";
+            if (!Regex.Match(v, regex).Success)
+            {
+                return false;
+            }
+            else
+                return true;
+        }
+
+        private bool checkedPass(string v)
+        {
+            if (v.Length < 5 || v.Length > 10)
+            {
+                return false;
+            }
+            return true;
         }
 
         private string ConvertPass(string pass)

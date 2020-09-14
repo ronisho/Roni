@@ -16,7 +16,7 @@ namespace GameService
     public partial class fourinrowDB_RoniShoseov_EilonOsherContext : DbContext
     {
         public fourinrowDB_RoniShoseov_EilonOsherContext()
-            : base("name=fourinrowDB_RoniShoseov_EilonOsherEntities")
+            : base("name=fourinrowDB_RoniShoseov_EilonOsher")
         {
         }
     

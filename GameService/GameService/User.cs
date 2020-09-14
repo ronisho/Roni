@@ -11,10 +11,8 @@ namespace GameService
 {
     using System;
     using System.Collections.Generic;
-    using System.Runtime.Serialization;
-
-    [DataContract]
-    public class User
+    
+    public partial class User
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public User()
@@ -22,20 +20,14 @@ namespace GameService
             this.SingleGames = new HashSet<SingleGame>();
             this.SingleGames1 = new HashSet<SingleGame>();
         }
-        [DataMember]
+    
         public string UserName { get; set; }
-        [DataMember]
         public string HashedPassword { get; set; }
-        [DataMember]
         public int NumOfGames { get; set; }
-        [DataMember]
         public int NumOfWins { get; set; }
-        [DataMember]
         public int NumOfLosses { get; set; }
-        [DataMember]
         public int Points { get; set; }
-        
-
+    
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<SingleGame> SingleGames { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
