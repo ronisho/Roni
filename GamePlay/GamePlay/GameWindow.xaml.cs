@@ -1,18 +1,10 @@
 ﻿using GamePlay.GameServiceRef;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Drawing;
-using System.Windows.Navigation;
 using System.Windows.Forms;
 using System.Threading;
 using System.Windows.Shapes;
@@ -24,6 +16,7 @@ namespace GamePlay
     /// </summary>
     public partial class GameWindow : Window
     {
+        #region prop
         private string actualPlayer;
         private string selectedPlayer;
         private GameServiceClient gameServer;
@@ -33,27 +26,26 @@ namespace GamePlay
         private static int ROW = 7;
         private static int COL = 7;
         private char[,] board;
-        private WaitingForGame watingWindow;
+        private readonly WaitingForGame watingWindow;
         private char myChar = 'x';
-        private char playerChar = 'y';
         private bool userExit = true;
-
+        private readonly int[] board_state = new int[ROW];
+        #endregion prop
+        #region disc sizes
         private double DISC_SIZE = 73;
-
         private double WIDTH_MARGIN = 0.08;
         private readonly static int HEIGHT_MARGIN = 8;
         private readonly static int BOTTOM_MARGIN = -1;
-        private readonly int[] board_state = new int[ROW];
-
-        public GameWindow(string userName, string selectPlayer, GameServiceClient connectionToServer, ClientCallback clientCallback)
+        #endregion disc sizes
+     
+        public GameWindow(string userName, string selectPlayer, GameServiceClient connectionToServer, ClientCallback clientCallback, WaitingForGame waitingForGame)
         {
             this.actualPlayer = userName;
             this.selectedPlayer = selectPlayer;
             this.gameServer = connectionToServer;
             this.clientCallback = clientCallback;
-            GameWindowManger.Instance.GameWindow = (this);
-            this.watingWindow = GameWindowManger.Instance.WaitingForGameWindow;
             this.clientCallback.playerMove += playerMove;
+            this.watingWindow = waitingForGame;
             this.board = new char[ROW, COL];
             initBoard();
             initMaps();
@@ -88,8 +80,6 @@ namespace GamePlay
             colMap.Add(5, "c5");
             colMap.Add(6, "c6");
         }
-
-
 
         private void handleMove(System.Windows.Point p, int col)
         {
@@ -180,28 +170,6 @@ namespace GamePlay
             return result;
         }
 
-        private void updateMyWindowAfterMove(int col)
-        {
-            int rowTodraw = ROW -1;
-            for(int i = 1; i < ROW; i++)
-            {
-                if (this.board[i, col -1] != '\0')
-                { 
-                    rowTodraw = i -1;
-                    
-                    break;
-                }
-                   
-            }
-            this.board[rowTodraw, col -1] = myChar;
-            string result = rowMap[rowTodraw +1] + colMap[col];
-            System.Windows.Controls.Button l = (System.Windows.Controls.Button)this.FindName(result);
-            l.Background = new SolidColorBrush(Colors.Yellow);
-
-
-        }
-
-
         internal void playerMove(MoveResult moveResult, int row, int col, System.Windows.Point p)
         {
 
@@ -213,7 +181,7 @@ namespace GamePlay
                     this.watingWindow.Show();
                     Thread t = new Thread(watingWindow.imBack);
                     t.Start();
-                    this.gameServer.PlayerRetrunToList(this.actualPlayer);
+                    //this.gameServer.PlayerRetrunToList(this.actualPlayer);
                     this.userExit = false;
                     this.Close();
                 }
@@ -231,7 +199,7 @@ namespace GamePlay
         {
             if (userExit)
             {
-                Thread t = new Thread(GameWindowManger.Instance.WaitingForGameWindow.Close);
+                Thread t = new Thread(this.watingWindow.Close);
                 t.Start();
             }
 
@@ -247,8 +215,6 @@ namespace GamePlay
             handleMove(p, col);
         }
 
-      
-
         private bool isInWIndowRange(System.Windows.Point p)
         {
             bool result = false;
@@ -262,10 +228,5 @@ namespace GamePlay
             return result;
         }
 
-
-        private void updatefinishGameDB(string user1 , int point)
-        {
-
-        }
     }
 }

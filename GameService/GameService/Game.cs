@@ -1,28 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.Serialization;
-using System.ServiceModel;
-using System.ServiceModel.Channels;
-using System.Text;
-using System.Threading;
-using System.Windows;
+﻿using System.Linq;
 
 namespace GameService
 {
     internal class GameZone
     {
-        private const int ROW = 6;
+        #region proprety
+        private const int ROW = 7;
         private const int COL = 7;
         private string p1;
         private string p2;
-        private int GameID { get;}
         private readonly char playerOneChar = 'A';
         private readonly char playerTwoChar = 'B';
         private ICallback callback1;
         private ICallback callback2;
         private char[,] board;
         private string currentPlayer;
+        private int poin = 0;
+        #endregion
 
         public GameZone(string p1 ,string p2, ICallback callback1, ICallback callback2)
         {
@@ -91,15 +85,17 @@ namespace GameService
                 if (checkInCol(p))
                 {
                     UserWin.Points += 1100;
+                    poin = 1100;
                 }
                 else
                 {
                     UserWin.Points += 1000;
+                    poin = 1000;
                 }
                 UserWin.NumOfGames += 1;
                 UserWin.NumOfWins += 1;
                 WinGamePoint.Winner = player;
-                WinGamePoint.GamePoint = UserWin.Points;
+                WinGamePoint.GamePoint = poin;
                 WinGamePoint.Status = false;
                 ctx.SaveChanges();
             }
@@ -120,7 +116,6 @@ namespace GameService
                 UserLose.Points += (10 * cntSquare(p));
                 UserLose.NumOfGames += 1;
                 UserLose.NumOfLosses += 1;
-
                 ctx.SaveChanges();
             }
         }
@@ -136,6 +131,7 @@ namespace GameService
             }
             return cnt;
         }
+
         private bool checkInCol(char player)
         {
             int cnt = 0;
@@ -145,13 +141,12 @@ namespace GameService
                     if (board[i, j] == player)
                     {
                         cnt++;
-                        if (cnt >= 7)
+                        if (cnt >= COL)
                             return true;
                     }
             }
             return false;
         }
-
 
         private void changePlayerTurn()
         {

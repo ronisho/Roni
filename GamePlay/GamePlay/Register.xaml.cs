@@ -14,14 +14,15 @@ namespace GamePlay
     /// </summary>
     public partial class Register : Window
     {
+        #region prop
         ClientCallback callback;
         GameServiceClient client;
+        #endregion prop
         public Register(ClientCallback cc, GameServiceClient gsc )
         {
             InitializeComponent();
             callback = cc;
             client = gsc;
-
         }
 
         private void signUpClicked(object sender, RoutedEventArgs e)

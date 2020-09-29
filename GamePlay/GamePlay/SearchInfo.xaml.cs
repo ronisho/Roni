@@ -23,9 +23,11 @@ namespace GamePlay
     /// </summary>
     public partial class SearchInfo : Window
     {
+        #region prop
         List<string> options;
         ClientCallback callback;
         GameServiceClient client;
+        #endregion prop
         public SearchInfo(ClientCallback cc, GameServiceClient gsc)
         {
             InitializeComponent();

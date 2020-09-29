@@ -32,7 +32,7 @@
             <Label Content="Sorted subscription information" Grid.Row="0" HorizontalAlignment="Center" Foreground="Gray" FontSize="25" />
             <ComboBox Name="sortingOpt" HorizontalAlignment="Center" Grid.Row="1" Width="300"/>
             <Button Width="150" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="287,0,287,3" Content="Sort OUT" Click="sortClicked" Grid.Row="2" Height="27"/>
-            <ListBox Name="lbSortResults" IsEnabled="False" Grid.Row="3" />
+            <ListBox Name="lbSortResults" IsEnabled="True" Grid.Row="3" />
         </Grid>
     </Grid>
 </Window>

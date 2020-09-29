@@ -97,7 +97,6 @@
     <Compile Include="GameWindow.xaml.cs">
       <DependentUpon>GameWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="GameWindowManger.cs" />
     <Compile Include="HistoryBetween.xaml.cs">
       <DependentUpon>HistoryBetween.xaml</DependentUpon>
     </Compile>

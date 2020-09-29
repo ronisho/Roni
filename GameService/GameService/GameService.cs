@@ -15,8 +15,11 @@ namespace GameService
           ConcurrencyMode = ConcurrencyMode.Multiple)]
     public class GameServiceClass : IGameService
     {
+        #region dicts
         Dictionary<string, ICallback> avilableClinets = new Dictionary<string, ICallback>();
+        Dictionary<string, ICallback> activeClinets = new Dictionary<string, ICallback>();
         Dictionary<string, GameZone> games = new Dictionary<string, GameZone>();
+        #endregion dicts
         public void Disconnect(string player)
         {
             //remove from avilable clinet
@@ -34,6 +37,24 @@ namespace GameService
               );
                 updateOtherPlayerThread.Start();
             }
+
+            using (var ctx = new fourinrowDB_RoniShoseov_EilonOsherContext())
+            {
+                List<string> PlayerGames = new List<string>();
+                var UpdatStatus = (from g in ctx.SingleGames
+                                    where g.Player1_UserName == player || g.Player2_UserName == player & g.Status == true
+                                    select g).ToList();
+                if (PlayerGames.Count == 0) return;
+                foreach (var ga in UpdatStatus)
+                {
+                    ga.Status = false;
+                    ctx.SaveChanges();
+
+                }
+                ctx.SaveChanges();
+            }
+
+
         }
 
         public void Register(string name, string pass)
@@ -70,20 +91,6 @@ namespace GameService
             }
         }
 
-        private bool userExist(string name)
-        {
-
-            using (var ctx = new fourinrowDB_RoniShoseov_EilonOsherContext())
-            {
-                var IsExists = (from u in ctx.Users
-                                where u.UserName == name
-                                select u).FirstOrDefault();
-                if (IsExists != null)
-                    return true;
-            }
-            return false;
-        }
-
         private void updateAllClinetToUpdateList(string name)
         {
             foreach (var callBack in avilableClinets.Values)
@@ -105,8 +112,14 @@ namespace GameService
         public Dictionary<string, ICallback> GetAvliableClients(string user)
         {
             var ret = new Dictionary<string, ICallback>(avilableClinets);
+            ret = removePlayerThatPlay(ret);
             ret.Remove(user);
             return ret;
+        }
+
+        private Dictionary<string, ICallback> removePlayerThatPlay(Dictionary<string, ICallback> ret)
+        {
+            return ret.Where(i => !games.ContainsKey(i.Key)).ToDictionary(i => i.Key, i => i.Value);
         }
 
         public bool StartGame(string by, string player)
@@ -172,8 +185,8 @@ namespace GameService
 
         public void PlayerRetrunToList(string player)
         {
-            if (this.avilableClinets[player] != null)
-                this.avilableClinets.Remove(player);
+            if (this.games[player] != null)
+                this.games.Remove(player);
             this.updateAllClinetToUpdateList(player);
         }
 
@@ -202,7 +215,6 @@ namespace GameService
                     throw new FaultException<UnregisteredUser>(userNotExsists);
                     
                 }
-
                 else if (pass != findUser.HashedPassword)
                 {
                     WrongPassword userWrongPassword = new WrongPassword
@@ -214,19 +226,10 @@ namespace GameService
                 else
                 {
                     ICallback singIncallback = OperationContext.Current.GetCallbackChannel<ICallback>();
-                    avilableClinets.Add(user, singIncallback);
                     updateAllClinetToUpdateList(user);
-
-
-
+                    avilableClinets.Add(user, singIncallback);
                 }
             }
-        }
-
-        private bool isValidUser(string user, string pass)
-        {
-            //need to implnet check in data base if is cuurect
-            return false;
         }
 
         public List<string> createPlayerData()
@@ -266,7 +269,6 @@ namespace GameService
             }
         }
 
-
         private double percentageOfWins(List<SingleGame> list, string player)
         {
             int wins = 0;
@@ -276,8 +278,6 @@ namespace GameService
             }
             return ((double)wins / list.Count()) * 100;
         }
-
-
 
         public List<string> liveGamesList()
         {
@@ -383,7 +383,7 @@ namespace GameService
                 {
                     case "Username":
                         var byUsername = (from u in ctx.Users
-                                      orderby u.UserName descending
+                                      orderby u.UserName ascending
                                       select u.UserName).ToList();
                         return byUsername;
                     case "Number of Games":

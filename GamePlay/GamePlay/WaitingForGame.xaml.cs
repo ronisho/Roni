@@ -22,14 +22,12 @@ namespace GamePlay
     /// </summary>
     public partial class WaitingForGame : Window
     {
+        #region prop
         private string userName;
-
         private ClientCallback clientCallback;
         private GameServiceClient connectionToServer;
-        public delegate void UpdateUsers();
-        public event UpdateUsers updateUsers;
         private List<string> userList;
-        private bool deleteWindowRefrence = false;
+        #endregion prop
 
         public WaitingForGame(string name, ClientCallback clientCallback, GameServiceClient connectionToServer)
         {
@@ -38,10 +36,11 @@ namespace GamePlay
             this.connectionToServer = connectionToServer;
             InitializeComponent();
             userList = connectionToServer.GetAvliableClientsForUser(this.userName).Keys.ToList();
+            listOfAvliablePlayers.Items.Clear();
+            listOfAvliablePlayers.ItemsSource = null;
             listOfAvliablePlayers.ItemsSource = connectionToServer.GetAvliableClientsForUser(this.userName).Keys.ToList();
             usrName.Content = "Hello " + name;
             initDelegates();
-            GameWindowManger.Instance.WaitingForGameWindow = (this);
         }
 
         private void initDelegates()
@@ -49,11 +48,6 @@ namespace GamePlay
             this.clientCallback.startGame += startWithAnotherPlayer;
             this.clientCallback.updateUserList += updateUserList;
             this.clientCallback.confirmGame += confirmGame;
-        }
-
-        private void btnRefreshRivals_Click(object sender, RoutedEventArgs e)
-        {
-
         }
 
         internal bool confirmGame(string userToGame)
@@ -66,11 +60,6 @@ namespace GamePlay
                
             return false;
 
-        }
-
-        private void windowClosed(object sender, System.ComponentModel.CancelEventArgs e)
-        {
-            connectionToServer.Disconnect(this.userName);
         }
 
         public void updateUserList(string user,string action)
@@ -95,7 +84,7 @@ namespace GamePlay
 
         private void startWithAnotherPlayer(string p1)
         {
-            GameWindow newGame = new GameWindow(this.userName, p1, this.connectionToServer,clientCallback);
+            GameWindow newGame = new GameWindow(this.userName, p1, this.connectionToServer,clientCallback,this);
             this.userList.Remove(p1);
             listOfAvliablePlayers.ItemsSource = null;
             listOfAvliablePlayers.ItemsSource = userList;
@@ -129,7 +118,6 @@ namespace GamePlay
         {
             connectionToServer.PlayerRetrunToList(this.userName);
         }
-
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {

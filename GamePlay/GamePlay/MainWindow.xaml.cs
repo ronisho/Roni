@@ -15,8 +15,10 @@ namespace GamePlay
     /// </summary>
     public partial class MainWindow : Window
     {
+        #region prop
         GameServiceClient client;
         ClientCallback callback;
+        #endregion prop
         public MainWindow()
         {
             InitializeComponent();
@@ -31,7 +33,6 @@ namespace GamePlay
                 try
                 {
                     client.SingIn(name.Text.Trim(), ConvertPass(pass.Password.Trim()));
-                    MessageBox.Show("roni signIn");
                     WaitingForGame waitingForGame = new WaitingForGame(name.Text.Trim(), callback, client);
                     waitingForGame.Show();
                     this.Hide();
@@ -63,9 +64,8 @@ namespace GamePlay
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-         //  Application.
+         
         }
-
 
         private void registerClicked(object sender, RoutedEventArgs e)
         {

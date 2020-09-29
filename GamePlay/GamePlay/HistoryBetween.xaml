@@ -59,7 +59,7 @@
                     </Grid.RowDefinitions>
                     <Label Grid.Row="0" Grid.Column="0" Margin="1,-1,10.4,1.4" Name="lbP1"/>
                     <Label Grid.Row="0" Grid.Column="1" Margin="1,-1,10.4,1.4" Name="lbP2"/>
-                    <ListBox Name="lbSearchResults" Margin="2,4.6,2,-0.4" IsEnabled="False" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"/>
+                    <ListBox Name="lbSearchResults" Margin="2,4.6,2,-0.4" IsEnabled="True" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"/>
                 </Grid>
             </GroupBox>
         </Grid>

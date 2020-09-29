@@ -28,7 +28,7 @@
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
             <Label Content="Live Game list" Grid.Row="0" HorizontalAlignment="Center" Foreground="Gray" FontSize="25"/>
-            <ListBox x:Name="lbGameList" Grid.Row="1" Margin="5"/>
+            <ListBox x:Name="lbGameList" IsEnabled="True" Grid.Row="1" Margin="5"/>
         </Grid>
     </Grid>
 </Window>

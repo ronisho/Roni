@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GamePlay"
         mc:Ignorable="d"
-        Title="GameWindow" Height="625" Width="625" Closing="Window_Closing" WindowStyle="None" ResizeMode="NoResize">
+        Title="GameWindow" Height="625" Width="625" Closing="Window_Closing"  ResizeMode="NoResize">
 
     <Grid >
         <Grid.RowDefinitions>

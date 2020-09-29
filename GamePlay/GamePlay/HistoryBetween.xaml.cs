@@ -28,7 +28,6 @@ namespace GamePlay
             InitializeComponent();
             callback = cc;
             client = gsc;
-
             player1ComboBox.ItemsSource = data;
             player2ComboBox.ItemsSource = data;
         }
@@ -68,11 +67,6 @@ namespace GamePlay
                 ret.RemoveAt(0);
                 lbSearchResults.ItemsSource = ret;
             }
-
-
-
-
-
         }
     }
 }
